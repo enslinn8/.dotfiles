@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+# specify stow and target dir
+
+#list all current dirs
+dotDir=~/repos/.dotfiles
+
+pushd $dotDir
+for d in $dotDir/* ; do
+    echo "$d";
+    stow --dir $d --target=$HOME
+done
+popd
