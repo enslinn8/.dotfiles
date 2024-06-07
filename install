@@ -9,6 +9,6 @@ dotDir=~/repos/.dotfiles
 pushd $dotDir
 for d in $dotDir/* ; do
     echo "$d";
-    stow --dir $d --target=$HOME
+    stow --target=$HOME $d
 done
 popd
