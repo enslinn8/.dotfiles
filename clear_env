@@ -1,6 +1,4 @@
 #!/bin/bash
-
-
 # specify stow and target dir
 
 #list all current dirs
