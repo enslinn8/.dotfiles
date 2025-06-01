@@ -1,0 +1,7 @@
+chromium
+neovim
+git
+lazygit
+nvm
+tmux
+stow
