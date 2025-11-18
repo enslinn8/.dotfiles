@@ -1,5 +1,6 @@
 #!/bin/bash
-
-xrandr --output DP-2 --primary --auto
-xrandr --output HDMI-0 --off
+monitor1=HDMI-0
+monitor2=DP-2
+xrandr --output $monitor2 --primary --auto
+xrandr --output $monitor1 --off
 

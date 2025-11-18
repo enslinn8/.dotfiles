@@ -1,0 +1,9 @@
+#!/bin/bash
+
+userPoolId=$1
+
+if [[ -z $userPoolId ]]; then
+    echo "user pool id not set";
+fi
+
+aws cognito-idp list-users --user-pool-id $userPoolId 

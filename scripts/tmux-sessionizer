@@ -3,7 +3,8 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find $HOME/ $HOME/Repos $HOME/Repos/.dotfiles/ -mindepth 1 -maxdepth 1 -type d | fzf)# NOTE only shows directories hence -d
+	# NOTE only shows directories hence -d
+    selected=$(find $HOME/ $HOME/Repos -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
