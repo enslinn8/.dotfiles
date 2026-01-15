@@ -1,6 +1,7 @@
 #!/bin/bash
-monitor1=HDMI-0
-monitor2=DP-2
-xrandr --output $monitor2 --primary --auto
-xrandr --output $monitor1 --off
+monitor1=eDP-2
+#xrandr --output $monitor2 --primary --auto
+#xrandr --output $monitor1 --off
+
+hyprctl keyword "monitor" "$monitor1, enable"
 
