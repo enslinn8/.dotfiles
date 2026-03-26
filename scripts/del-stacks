@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Define the JSON data (can also be read from a file using `cat data.json`)
+jsonData=`aws cloudformation list-stacks --profile VICS --region af-south-1 | jq '.StackSummaries | map(.StackName)'`
+
+deleteStack(){
+aws cloudformation delete-stack \
+  --stack-name $1 --profile VICS --region af-south-1
+}
+# Iterate over each object using jq and a while loop
+while IFS= read -r row; do
+  # Process the JSON object stored in the 'row' variable
+  username=$(echo $row | tr -d '"') # Remove quotes from the string
+  deleteStack $username
+done < <(echo "$jsonData" | jq -c '.[]')
+

@@ -4,7 +4,7 @@ if [[ $# -eq 1 ]]; then
     selected=$1
 else
 	# NOTE only shows directories hence -d
-    selected=$(find $HOME/ $HOME/Repos -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find $HOME/ $HOME/Repos $HOME/Documents -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

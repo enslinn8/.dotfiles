@@ -5,3 +5,17 @@ lazygit
 nvm
 tmux
 stow
+
+
+
+waybar
+ly 
+tmux
+neovim
+dunst
+grep 
+less
+htop
+unzip
+tar
+git 
