@@ -18,8 +18,12 @@ ttf-nerd-fonts-symbols
 swayimg
 hyprpaper 
 docker 
+docker-compose
 docker-buildx
 xdg-desktop-portal-hyprland
 rsync 
 unzip
 kwallet
+hyprshot
+tree-sitter
+tree-sitter-cli

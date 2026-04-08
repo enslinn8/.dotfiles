@@ -32,7 +32,8 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash;
 source $HOME/.zshrc
 bash nvm i --lts
 
-
+# docker 
+sudo usermod -aG docker $USER
 
 # yay
 sudo pacman -S --needed git base-devel
