@@ -45,8 +45,8 @@ type CognitoClient struct {
 	Region string
 }
 
-// NewCognitoClient creates an authenticated client for the given profile and region.
-func NewCognitoClient(profile, region string) (*CognitoClient, error) {
+// loadAWSConfig is the shared config loader used by all service clients.
+func loadAWSConfig(profile, region string) (aws.Config, error) {
 	opts := []func(*config.LoadOptions) error{
 		config.WithSharedConfigProfile(profile),
 	}
@@ -55,10 +55,19 @@ func NewCognitoClient(profile, region string) (*CognitoClient, error) {
 	}
 	cfg, err := config.LoadDefaultConfig(context.Background(), opts...)
 	if err != nil {
-		return nil, fmt.Errorf("failed to load AWS config: %w", err)
+		return aws.Config{}, fmt.Errorf("failed to load AWS config: %w", err)
 	}
 	if cfg.Region == "" {
 		cfg.Region = "us-east-1"
+	}
+	return cfg, nil
+}
+
+// NewCognitoClient creates an authenticated client for the given profile and region.
+func NewCognitoClient(profile, region string) (*CognitoClient, error) {
+	cfg, err := loadAWSConfig(profile, region)
+	if err != nil {
+		return nil, err
 	}
 	return &CognitoClient{
 		svc:    cognitoidentityprovider.NewFromConfig(cfg),
